@@ -60,11 +60,12 @@
   }
   
   /* Headshot styling */
-  .project-HeadShot-container img {
+  .project-HeadShot-container img,
+.profile-image {
     width: 200px; /* Larger headshot */
     height: 200px;
     border-radius: 50%; /* Round shape */
-    object-fit: cover; /* Ensures the headshot isn't cut off */
+
     object-position: top; /* Ensure top of head is visible */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
