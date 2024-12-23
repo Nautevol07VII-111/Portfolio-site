@@ -53,17 +53,17 @@
   }
 
  /* Update the underline for the name */
-header .name {
+ .name {
     border-bottom: 2px solid #00B4B4;  /* Matches the teal accent color */
 }
 
 /* Update the navigation links (About, Experience, Projects) */
-nav a {
+.nav a {
     color: #00B4B4;  /* Changes the text color to match */
     transition: opacity 0.3s ease;
 }
 
-nav a:hover {
+.nav a:hover {
     opacity: 0.8;  /* Adds a subtle hover effect */
 }
   
