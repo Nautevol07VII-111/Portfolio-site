@@ -51,6 +51,21 @@
     align-items: center;
     text-align: center;
   }
+
+ /* Update the underline for the name */
+header .name {
+    border-bottom: 2px solid #00B4B4;  /* Matches the teal accent color */
+}
+
+/* Update the navigation links (About, Experience, Projects) */
+nav a {
+    color: #00B4B4;  /* Changes the text color to match */
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;  /* Adds a subtle hover effect */
+}
   
   /* Add padding and a subtle border for better visual balance */
   header, main, footer {
