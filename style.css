@@ -1,0 +1,233 @@
+:root {
+    --bg-primary: #1a1f2e;  /* Dark background */
+    --text-primary: #f8f9fa; /* Light text */
+    --text-name: #f5f5f1; /* Creamish white for header */
+    --text-secondary: #94a3b8; /* Lighter text */
+    --accent-teal: rgb(45, 212, 191); /* Teal accent color */
+    --tag-bg: rgba(45, 212, 191, 0.1); /* Light translucent teal for tags */
+    --link-hover: #b1b9c5; /* Lighter hover color */
+    --container-padding: clamp(1rem, 3vw, 2rem);
+    --content-width: min(1200px, 100% - 2rem);
+    --heading-line-height: 1.2;
+    --body-line-height: 1.6;
+    --body-max-width: 65ch;
+    --transition-speed: 0.3s; /* Faster transitions */
+    --border-radius: 12px; /* Rounded corners */
+    --chrome-opacity: 0.6; /* Increased chrome opacity for more visibility */
+    --translucent-bg: rgba(45, 212, 191, 0.15); /* Translucent seafoam green */
+    --shine-speed: 1.5s; /* Faster shine speed for more noticeable effect */
+  }
+  
+  /* Global Styles */
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: var(--body-line-height);
+    letter-spacing: -0.011em;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Centering the content with padding for balance */
+  .container {
+    width: var(--content-width);
+    margin-inline: auto;
+    padding: var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Add padding and a subtle border for better visual balance */
+  header, main, footer {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+  }
+  
+  /* Headshot styling */
+  .project-HeadShot-container img {
+    width: 220px; /* Larger headshot */
+    height: 220px;
+    border-radius: 50%; /* Round shape */
+    object-fit: cover; /* Ensures the headshot isn't cut off */
+    object-position: top; /* Ensure top of head is visible */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  }
+  
+  
+  header .name {
+    color: var(--text-name); 
+    font-size: clamp(2.5rem, 6vw, 3.5rem); 
+    font-weight: 600;
+    margin: 0;
+  }
+  
+ 
+  .social-links, .social-link-container {
+    display: flex;
+    gap: 2rem; 
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .social-link-container, .social-links {
+    font-size: 4rem; 
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    position: relative;
+  }
+  
+ 
+  .social-link-container:hover {
+    transform: scale(1.2); 
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.8); 
+    color: var(--accent-teal);
+  }
+  
+  
+  @keyframes shine {
+    0% {
+        background-position: -200%;
+    }
+    100% {
+        background-position: 200%;
+    }
+  }
+  
+ 
+  .social-links a::before {
+    font-size: 2rem;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
+    animation: shine var(--shine-speed) infinite linear;
+    opacity: 0;
+    border-radius: var(--border-radius);
+  }
+  
+  .social-links a:hover::before {
+    opacity: 1;
+  }
+  
+ 
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .tag {
+    background: var(--tag-bg);
+    padding: 0.3rem 1rem;
+    border-radius: var(--border-radius);
+    height: fit-content;
+    transition: background 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .tag p {
+    color: var(--accent-teal);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    margin: 0;
+    opacity: 0.85;
+  }
+  
+  .tag:hover {
+    background: rgba(45, 212, 191, 0.3);
+    opacity: 1;
+  }
+  
+  
+  
+  .tag:hover {
+    color: var(--accent-teal);
+    background-color: rgba(45, 212, 191, 0.1);
+    border-radius: 4px;
+  }
+  
+ 
+  .scroll-to-top {
+    display: inline-block;
+    margin-top: 2rem;
+    background-color: var(--accent-teal);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: rgba(45, 212, 191, 0.8);
+  }
+  
+
+  nav a {
+    padding: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  nav a:hover {
+    color: var(--accent-teal);
+    transform: scale(1.05);
+  }
+  
+  
+  section {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+  }
+  
+
+  .tag {
+    background: var(--translucent-bg);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-HeadShot-container {
+        justify-self: center;
+        grid-row: 1 / span 2;
+    }
+  }
+  
