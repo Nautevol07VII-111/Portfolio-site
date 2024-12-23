@@ -60,9 +60,9 @@
   }
   
   /* Headshot styling */
-  .project-HeadShot-container img {
-    width: 220px; /* Larger headshot */
-    height: 220px;
+  .project-HeadShot-container {
+    width: 200px; /* Larger headshot */
+    height: 200px;
     border-radius: 50%; /* Round shape */
     object-fit: cover; /* Ensures the headshot isn't cut off */
     object-position: top; /* Ensure top of head is visible */
