@@ -69,9 +69,18 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
 
-   .HeadShot {
-        height:  fit-content;
-   }
+   .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile-image:hover {
+    border-color: #646cff;
+}
 
   
   
