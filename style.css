@@ -60,25 +60,19 @@
   }
   
   /* Headshot styling */
-  .project-HeadShot-container img,
+.project-HeadShot-container img,
 .profile-image {
-    width: 200px; /* Larger headshot */
-    height: 200px;
-    border-radius: 50%; /* Round shape */
-
-    object-position: top; /* Ensure top of head is visible */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
-  }
-
-   .profile-image {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.3);
 }
 
+.project-HeadShot-container img:hover,
 .profile-image:hover {
     border-color: #646cff;
 }
