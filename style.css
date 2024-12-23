@@ -60,7 +60,7 @@
   }
   
   /* Headshot styling */
-  .project-HeadShot-container {
+  .project-HeadShot-container img {
     width: 200px; /* Larger headshot */
     height: 200px;
     border-radius: 50%; /* Round shape */
@@ -68,6 +68,11 @@
     object-position: top; /* Ensure top of head is visible */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
+
+   .HeadShot {
+        height:  fit-content;
+   }
+
   
   
   header .name {
