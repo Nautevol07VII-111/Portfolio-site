@@ -57,14 +57,14 @@
 }
 
 
-.nav a {
+.description-buttons {
     font-weight: bold;
     font-style: italic;
     color:  #98FFEE;  
     transition: opacity 0.3s ease;
 }
 
-.nav a:hover {
+.description-buttons:hover {
     color:  #98FFEE;
     opacity: 0.8;  
 }
