@@ -58,11 +58,12 @@
 
 
 .nav a {
-    color: #00B4B4;  
+    color: #5CDB95;  
     transition: opacity 0.3s ease;
 }
 
 .nav a:hover {
+    color: #5CDB95;
     opacity: 0.8;  
 }
   
