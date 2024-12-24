@@ -58,12 +58,14 @@
 
 
 .nav a {
-    color: #5CDB95;  
+    font-weight: bold;
+    font-style: italic;
+    color:  #98FFEE;  
     transition: opacity 0.3s ease;
 }
 
 .nav a:hover {
-    color: #5CDB95;
+    color:  #98FFEE;
     opacity: 0.8;  
 }
   
