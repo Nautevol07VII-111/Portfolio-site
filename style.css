@@ -295,5 +295,25 @@
   color: #5CDB95;
 }
 
+.resume {
+  color: #5CDB95;  
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.resume:visited {
+  color: #5CDB95;
+}
+
+.resume:hover {
+  opacity: 0.8;
+}
+
+
+.resume .fa-arrow-right {
+  color: #5CDB95;
+}
+
+
 
   
