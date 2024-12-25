@@ -96,7 +96,7 @@
 
   
   
-  header .name {
+   .name {
     color: var(--text-name); 
     font-style: italic;
     font-size: clamp(2.5rem, 6vw, 3.5rem); 
