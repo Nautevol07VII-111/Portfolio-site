@@ -355,6 +355,21 @@
     }
 }
 
+/* Hoping this will keep the color-scheme consistent on mobile */
+.anchor-text:visited,
+.anchor-text:active,
+.anchor-text:link {
+    color: #5CDB95;
+    text-decoration-color: var(--accent-teal);
+}
+
+@media (hover: none) {
+    .anchor-text {
+        color: #5CDB95 !important;
+        text-decoration-color: var(--accent-teal) !important;
+    }
+}
+
 
 
 
