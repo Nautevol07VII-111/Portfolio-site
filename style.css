@@ -319,6 +319,43 @@
   color: #5CDB95;
 }
 
+/* additions for JavaScript stuff */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-teal);
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+
+.sticky-header {
+    transition: opacity var(--transition-speed) ease-out,
+                transform var(--transition-speed) ease-out;
+    will-change: transform, opacity;
+}
+
+/* Ensure smooth project card animations */
+.project-card {
+    transition: transform var(--transition-speed) ease;
+    will-change: transform;
+}
+
+/* Accessibility consideration */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress,
+    .project-card,
+    .tag,
+    .sticky-header {
+        transition: none;
+        transform: none;
+    }
+}
+
+
 
 
   
