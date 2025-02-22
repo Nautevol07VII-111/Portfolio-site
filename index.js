@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const scrollToTop = document.querySelector('.scroll-to-top');
+    if (scrollToTop) {
+        scrollToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     // Welcome Message Function
     const createWelcomeOverlay = () => {
         const overlay = document.createElement('div');
