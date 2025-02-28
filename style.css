@@ -414,6 +414,11 @@
     resize: vertical;
 }
 
+    Copytextarea#message {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
 .contact-submit {
     margin-top: 1rem;
 }
