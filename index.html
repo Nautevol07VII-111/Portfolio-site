@@ -10,307 +10,256 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-       
     </head>
-    <body>
-        <div class="underlay"></div>
-        <header>
-            <a href="/">
-                <h1 class="name">Nile Jackson</h1>
-            </a>
-            <h2 class="lightText">Full Stack Developer & Multi-Hyphenate Artist</h2>
-            <p>I build immersive websites, applications, and APIs that foster engaging and easily accessible digital experiences. </p>
-            <div class="project-HeadShot-container">
-                <img src="HeadShot.png" alt="HeadShot-thumbnail"/>
+    <body class="dark-mode">
+        <!-- Scroll Progress Indicator -->
+        <div class="scroll-progress"></div>
+
+        
+        <nav class="top-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">Nile Jackson</a>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
-            <nav>
-                <a href="#about-contents", class="description-buttons" >
-                    <p>About</p>
-                </a>
-                <a href="#experience-content" class="description-buttons">
-                    <p>Experience</p>
-                </a>
-                <a href="#project-content" class="description-buttons">
-                    <p>Projects</p>
-                </a>
-            </nav>
-            <div class="social-link-container">
-                <a class="social-links" href="https://www.linkedin.com/in/nile-jackson/" target="_blank">
-                    <i class="fa-brands fa-linkedin" class="tag"></i>
-                </a>
-                <a class="social-links" href="https://github.com/Nautevol07VII-111/" target="_blank">
-                    <i class="fa-brands fa-github" class="tag"></i>
-                </a>
-                <a class="social-links" href="https://www.instagram.com/nautevol/" target="_blank">
-                    <i class="fa-brands fa-instagram" class="tag"></i>
-                </a>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text-wrapper">
+                        <h1>Nile Jackson</h1>
+                        <h2>Full Stack Developer & Multi-Hyphenate Artist</h2>
+                        <p>I build immersive websites, applications, and APIs that foster engaging and easily accessible digital experiences.</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/nile-jackson/" target="_blank" aria-label="LinkedIn">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/Nautevol07VII-111/" target="_blank" aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://www.instagram.com/nautevol/" target="_blank" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="headshot-container">
+                        <img src="HeadShot.png" alt="Nile Jackson headshot" class="headshot"/>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="StudioFilterEdit.jpg" alt="Studio workspace" class="hero-image" />
             </div>
         </header>
+
+        <!-- Main Content -->
         <main>
-            <section>
-                <div class="sticky-header">
-                    <h2 class="lightText">About</h2>
+            
+            <section id="about" class="section-container">
+                <div class="section-header">
+                    <h2>About</h2>
                 </div>
-                <div id="about-contents" class="about-contents">
-                    <p>I am a self-taught painter and audio-engineer, but these days, I spend most of my time <a target="_blank" class="anchor-text" href="https://github.com/Nautevol07VII-111/"><b><em>coding</em></b></a>. My journey into software development stems from a fascination with bridging technology and fine art while preserving artistic authenticity. The problem-solving skills I've developed through years of creative work give me a unique perspective in tackling complex challenges. I look forward to working and evolving in the field of tech because technology is constantly changing; and like change, growth is also constant.</p>
+                <div class="section-content">
+                    <p>I am a self-taught painter and audio-engineer, but these days, I spend most of my time <a target="_blank" class="link-accent" href="https://github.com/Nautevol07VII-111/"><b><em>coding</em></b></a>. My journey into software development stems from a fascination with bridging technology and fine art while preserving artistic authenticity. The problem-solving skills I've developed through years of creative work give me a unique perspective in tackling complex challenges. I look forward to working and evolving in the field of tech because technology is constantly changing; and like change, growth is also constant.</p>
                 </div>
             </section>
-            <section>
-                <div class="sticky-header">
-                    <h2 class="lightText">Experience</h2>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section-container">
+                <div class="section-header">
+                    <h2>Experience</h2>
                 </div>
-                <div id="experience-content" class="experience-contents">
+                <div class="section-content">
                     <div class="experience-card">
-                        <p class="tenure">2024 - present</p>
-                        <div class="card-column">
-                            <a href="/" target="_blank">
-                                <h3 class="anchor-text card-header">Full Stack Developer ⋅ codeDifferently</h3>
-                            </a>
-                            <p> During my time at codeDifferently I learned how to build real world applications using an accelerated SCRUM methodology . I've built three results driven applications, one being my portfolio site which is currently averaging 50 visits a week. I've also contributed to the following projects; CSV parsers, bank ATM features, simple grade checkers, an interactive game called <a target="_blank" class="anchor-text" href="https://github.com/nilejack/24q4-team2/tree/main"><em><b>numMeCrazy</b></em></a> and much more. In addition to learning how to learn in an efficient manner, I was able to obtain another valuable skill; namely, how to optimize my learning process in group settings through collaborative learning. With a collective approach to abstracting complex concepts I was able to not only help myself, but my team members as well. Working in a collaborative environment also enhanced my soft skills.</p>
-                            <div class="tag-container">
-                                <div class="tag">
-                                    <p>Java</p>
-                                </div>
-                                <div class="tag">
-                                    <p>JavaScript</p>
-                                </div>
-                                <div class="tag">
-                                    <p>TypeScript</p>
-                                </div>
-                                <div class="tag">
-                                    <p>React.JS</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Spring</p>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="experience-card">
-                        <p class="tenure">2022 - 2024</p>
-                        <div class="card-column">
-                            <a href="/" target="_blank">
-                                <h3 class="anchor-text card-header">Audio Engineer ⋅ FreeLance</h3>
-                            </a>
-                            <p> I stumbled into the audio sector because the opportunity presented itself, and I picked up the trade pretty quickly. I began my audio journey as a studio intern at Manhattan Beach Recordings. After a six-month tenure there, I began to work independently, mainly in live sound at several local bars in the Brooklyn area. In addition to live sound work, I ran a plethora of vocal tracking, mixing, and song-writing sessions for various artists; most notably, Wale, DreamDoll, Playboi Carti, Jada Kingdom, and Skepta. As an audio engineer, I had to work in rapidly changing environments all the time, which allowed me to better hone my adaptive skillset. Working with electrical circuitry was a significant part of my work; from repairing tweeters, replacing transducers in microphones, replacing circuit boards on mixing consoles, soldering damaged wires and much more. Here is a list of studios I've worked in: Manhattan Beach Recordings, Quad Studios, Power Station at BerkleeNYC, Platinum Sound Recordings, and Jungle City Studios.</p>
-                            <div class="tag-container">
-                                <div class="tag">
-                                    <p>Logic Pro</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Pro Tools</p>
-                                </div>
-                                <div class="tag">
-                                    <p>FL Studio</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Ableton Live</p>
-                                </div>
-                                <div class="tag">
-                                    <p>SSL L series, Avid S6L, API 1608-II mixing consoles.</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Various compressors; including, Tubtech's CL 1B and DBX's 160A hardware compressors.</p>
-                                </div>                      
+                        <div class="experience-year">09/2024 - 02/2025</div>
+                        <div class="experience-details">
+                            <h3>Full Stack Developer · codeDifferently</h3>
+                            <p>During my time at codeDifferently I learned how to build real world applications using an accelerated SCRUM methodology. I've built three results driven applications, one being my portfolio site which is currently averaging 50 visits a week. I've also contributed to the following projects; CSV parsers, bank ATM features, simple grade checkers, an interactive game called <a target="_blank" class="link-accent" href="https://github.com/nilejack/24q4-team2/tree/main"><em><b>numMeCrazy</b></em></a> and much more.</p>
+                            <div class="tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">React.JS</span>
+                                <span class="tag">Spring</span>
                             </div>
                         </div>
                     </div>
-                    <div class="experience-card">
-                        <p class="tenure">2022 - 2022 (4 months)</p>
-                        <div class="card-column">
-                            <a href="/" target="_blank">
-                                <h3 class="anchor-text card-header">Jeweler/Stone-Setting Apprentice ⋅ Riva Precision</h3>
-                            </a>
-                            <p>As an entry-level jeweler/setter at Riva, I had to learn to read blueprints and implement them into actual pieces. I was able to employ and further improve upon my quick problem-solving skills due to the tedious, hurried nature of the work. While at Riva, I produced over 350 pieces for production (retail). Working as a jeweler in a factory was extremely challenging; due to the fast working pace and high-quality standard, but it's where I discovered my love for problem-solving.</p>
-                            <div class="tag-container">
-                                <div class="tag">
-                                    <p>Diamond Drill, and graver (specific to situation) competency.</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Loupe (microscope) proficiency.</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Pave, and prong pusher experience.</p>
-                                </div>
-                                <div class="tag">
-                                    <p>Polishing, buffering, and ultrasonic cleaning knowledge.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-card">
-                      <p class="tenure">2025 - Present</p>
-                         <div class="card-column">
-                            <a href="/" target="_blank">
-                                 <h3 class="anchor-text card-header">Junior IT Analyst Intern ⋅ WC3</h3>
-                            </a>
-                     <p>As an IT analyst intern, I've worked with the IT departments (WC3 clients) to provide basic technical support and system monitoring while learning about enterprise operations. Daily tasks include tracking and documenting IT issues, performing routine system checks, and helping prepare technical documentation under senior staff supervision. The role involves developing practical IT skills through hands-on experience with various enterprise systems and software platforms while supporting core IT operations.</p>
-                     <div class="tag-container">
-                         <div class="tag">
-                             <p>Microsoft Azure</p>
-                         </div>
-                        <div class="tag">
-                            <p>ServiceNow</p>
-                        </div>
-                         <div class="tag">
-                             <p>IBM Troubleshooting best practices</p>
-                         </div>
-                        <div class="tag">
-                           <p>VM Security</p>
-                        </div>
-                       <div class="tag">
-                           <p>Jira</p>
-                       </div>
-                     <div class="tag">
-                        <p>HIPAA Compliance</p>
-                     </div>
-                    </div>
-                </div>
-            </div> 
                     
-                    <section>
-                        <div >
-                    <a href="./NileJackson.pdf" target="_blank" class="resume">View Full Resume <i class="fa-solid fa-arrow-right"> </i></a>
-                        </div>
-                </section>
-                </section>
-                <section>
-                    <div class="sticky-header">
-                        <h2 class="lightText">Projects</h2>
-                    </div>
-                    <div id="project-content" class="project-contents">
-                        <div class="project-card">
-                            <div class="project-image-container">
-                                <img src="springBoot.png" alt="spring-Boot"/>
-                            </div>
-                            <div class="card-column">
-                                <a href="/" target="_blank">
-                                    <h3 class="anchor-text card-header">Book Management REST API ⋅ Java</h3>
-                                </a>
-                                <p>Project Summary: I developed a comprehensive library management REST API using Spring Boot that implements core library operations through a clean layered architecture. The project features a well-structured domain model with separate entity and domain objects, maintaining proper separation of concerns. I implemented book management functionality including creation, retrieval, and availability checking, along with user management and book checkout capabilities. The application utilizes Spring Data JPA for database operations with an H2 in-memory database for development. I incorporated robust error handling and implemented comprehensive unit tests using JUnit and Mockito to ensure code reliability. The API follows RESTful principles with appropriate HTTP status codes and response entities, demonstrating my ability to design maintainable, well-tested backend services.As an ongoing project, I plan to expand the system with additional features including user management, checkout history tracking, and potentially a recommendation system based on borrowing patterns. <a target="_blank" class="anchor-text" href="https://github.com/Nautevol07VII-111/Books-REST-API"><em><b>REST API</b></em></a></p>
-                                <div class="tag-container">
-                                    <div class="tag">
-                                        <p>Java</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>Maven</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>Spring ⋅ Boot</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>JPA</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>Mockito</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>JUnit</p>
-                                    </div>
-                                </div>
+                    <div class="experience-card">
+                        <div class="experience-year">01/2025 - 03/2025</div>
+                        <div class="experience-details">
+                            <h3>Junior IT Analyst Intern · WC3</h3>
+                            <p>As an IT analyst intern, I've worked with the IT departments (WC3 clients) to provide basic technical support and system monitoring while learning about enterprise operations. Daily tasks include tracking and documenting IT issues, performing routine system checks, and helping prepare technical documentation under senior staff supervision.</p>
+                            <div class="tags">
+                                <span class="tag">Microsoft Azure</span>
+                                <span class="tag">ServiceNow</span>
+                                <span class="tag">IBM Troubleshooting</span>
+                                <span class="tag">VM Security</span>
+                                <span class="tag">Jira</span>
                             </div>
                         </div>
                     </div>
-                    <div id="project-content" class="project-contents">
-                        <div class="project-card">
-                            <div class="project-image-container">
-                                <img src="GoogleClone.png" alt="GoogleClone"/>
-                            </div>
-                            <div class="card-column">
-                                <a href="/" target="_blank">
-                                    <h3 class="anchor-text card-header">Google Clone ⋅ Html-Css-JavaScript</h3>
-                                </a>
-                                <p>Project Summary: I developed a responsive Google Search clone that faithfully recreates the iconic search interface while implementing modern web development practices and real search functionality. The project demonstrates my proficiency with contemporary front-end technologies and third-party API integration.
-                                    The application was built using Vite as the development environment, showcasing my understanding of modern build tools. Vite's hot module replacement (HMR) capabilities enabled rapid development cycles, while its optimized build process ensures efficient production deployment. The project structure leverages Vite's conventions for asset handling and environment variable management, particularly for securing API credentials.
-                                    For package management, I utilized Node Package Manager (npm) to handle project dependencies and streamline the development workflow. The package.json configuration includes custom scripts for development, building, and deployment processes. Notable dependencies include gh-pages for automated GitHub Pages deployment, demonstrating my ability to implement continuous deployment practices.
-                                    The search functionality integrates Google's Custom Search API, allowing real-world search capabilities while maintaining the familiar Google interface. The implementation includes debounced search handling to optimize API calls, error handling for failed requests, and support for both standard search and "I'm Feeling Lucky" functionality. The search component demonstrates thoughtful user experience considerations, including loading states and error feedback.
-                                    The user interface precisely mimics Google's design language while adding subtle customizations. I implemented responsive design principles using pure CSS, ensuring the application works seamlessly across different device sizes. The project features carefully crafted hover states, transitions, and animations that enhance the user experience while maintaining performance.
-                                    To ensure maintainable code, I organized the project into modular components with clear separation of concerns. The JavaScript implementation follows modern ES6+ practices, including proper event handling, async/await patterns for API calls, and defensive programming techniques. The styling utilizes CSS best practices with a well-structured hierarchy and reusable components.
-                                    This project demonstrates my ability to create professional-grade web applications that combine aesthetic design, technical functionality, and production-ready deployment processes. The GitHub Pages deployment pipeline showcases my understanding of modern web application deployment workflows.
-                                    <a target="_blank" class="anchor-text" href="https://github.com/Nautevol07VII-111/Google-Clone-"><em><b>Google Clone</b></em></a></p>
-                                <div class="tag-container">
-                                    <div class="tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="tag">
-                                        <p>Vite</p>
-                                        <p>Node Package Manager</p>
-                                    </div>
-                                </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-year">2022 - 2024</div>
+                        <div class="experience-details">
+                            <h3>Audio Engineer · FreeLance</h3>
+                            <p>I stumbled into the audio sector because the opportunity presented itself, and I picked up the trade pretty quickly. I began my audio journey as a studio intern at Manhattan Beach Recordings. After a six-month tenure there, I began to work independently, mainly in live sound at several local bars in the Brooklyn area. In addition to live sound work, I ran a plethora of vocal tracking, mixing, and song-writing sessions for various artists; most notably, Wale, DreamDoll, Playboi Carti, Jada Kingdom, and Skepta.</p>
+                            <div class="tags">
+                                <span class="tag">Logic Pro</span>
+                                <span class="tag">Pro Tools</span>
+                                <span class="tag">FL Studio</span>
+                                <span class="tag">Ableton Live</span>
                             </div>
                         </div>
-                        <div class="project-card">
-    <div class="project-image-container">
-        <img src="dailytodoScreenshot.png" alt="Daily Todo App"/>
-    </div>
-    <div class="card-column">
-        <a href="https://dailytodoprototype.netlify.app" target="_blank">
-            <h3 class="anchor-text card-header">Daily Todo Prototype ⋅ React</h3>
-        </a>
-        <p>Project Summary: I developed a dynamic task management application using React and Vite, showcasing modern web development practices and state management principles. The project demonstrates my proficiency with React's useState hook for handling dynamic user interactions and data persistence. I implemented features for adding, completing, and deleting tasks, with all changes persisting through browser sessions via localStorage integration. The application architecture emphasizes clean component structure and efficient state updates, while the development process provided valuable experience with contemporary tools like Vite for rapid development and optimization. Through challenges with environment configurations and module dependencies, I gained practical insights into debugging, dependency management, and deployment workflows. This project particularly highlights my growing expertise with React's ecosystem and modern JavaScript development patterns. <a target="_blank" class="anchor-text" href="https://dailytodoprototype.netlify.app"><em><b>Live Demo</b></em></a></p>
-        <div class="tag-container">
-            <div class="tag">
-                <p>React.js</p>
-            </div>
-            <div class="tag">
-                <p>JavaScript</p>
-            </div>
-            <div class="tag">
-                <p>Vite</p>
-            </div>
-            <div class="tag">
-                <p>React Hooks</p>
-            </div>
-            <div class="tag">
-                <p>NPM</p>
-            </div>
-        </div>
-    </div>
-</div>
-                    <a href="/" class="project-archive-link">
-                        <p>View Full Project Archive <span class="right-arrow">&rarr;</span></p>
-                    </a>
-                </section>
-            </main>
-           <section>
-    <div class="sticky-header">
-        <h2 class="lightText">Contact Me</h2>
-    </div>
-    <div id="contact-content" class="contact-contents">
-        <form action="https://formsubmit.co/njacksonnorthrup244@gmail.com" method="POST">
-            <!-- FormSubmit configuration options -->
-            <input type="hidden" name="_captcha" value="true">
-            <input type="hidden" name="_subject" value="New portfolio contact from your website!">
-            <input type="hidden" name="_template" value="table">
-           <input type="hidden" name="_next" value="https://nautevol07vii-111.github.io/Portfolio-site/thank-you.html">
-            
-            <div class="contact-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required class="contact-input">
-            </div>
-            
-            <div class="contact-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required class="contact-input">
-            </div>
-            
-            <div class="contact-field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Write your message here..." required class="contact-textarea"></textarea>
-            </div>
-            
-            <div class="contact-submit">
-                <button type="submit" class="contact-button">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </form>
-    </div>
-           </section>            
-         <footer>
-                <p>Coded in <a href="https://code.visualstudio.com" target="_blank" class="anchor-text"><em><b>Visual Studio Code</b></em></a> by Nile Jackson.<br /> Created with HTML & CSS, and deployed with <a href="https://www.cloudflare.com" target="_blank" class="anchor-text"><em><b>Cloudflare</b></em></a>.<br /> All texts are set in the <a href="https://rsms.me/inter/"  class="anchor-text" target="_blank"><em><b>Inter typeface</b></em></a>.</p>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="experience-year">2022 (4 months)</div>
+                        <div class="experience-details">
+                            <h3>Jeweler/Stone-Setting Apprentice · Riva Precision</h3>
+                            <p>As an entry-level jeweler/setter at Riva, I had to learn to read blueprints and implement them into actual pieces. I was able to employ and further improve upon my quick problem-solving skills due to the tedious, hurried nature of the work. While at Riva, I produced over 350 pieces for production (retail). Working as a jeweler in a factory was extremely challenging; due to the fast working pace and high-quality standard, but it's where I discovered my love for problem-solving.</p>
+                            <div class="tags">
+                                <span class="tag">Diamond Drill</span>
+                                <span class="tag">Loupe Proficiency</span>
+                                <span class="tag">Pave Techniques</span>
+                                <span class="tag">Polishing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="./NileJackson.pdf" target="_blank" class="view-resume">View Full Resume <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section-container">
+                <div class="section-header">
+                    <h2>Current Projects</h2>
+                    <p>Building meaningful projects is how I translate my ideas into reality. Each project represents a problem I found worth solving or a question I wanted to explore. While I have many interests, these featured projects showcase my current focus on creating practical tools that help people learn, work, and research more effectively.</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="springBoot.png" alt="Spring Boot project" />
+                        </div>
+                        <div class="project-details">
+                            <h3>Book Management REST API</h3>
+                            <p>A comprehensive library management REST API using Spring Boot that implements core library operations through a clean layered architecture. Features include book management, user accounts, and checkout capabilities.</p>
+                            <div class="tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">JPA</span>
+                                <span class="tag">JUnit</span>
+                                <span class="tag">Mockito</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Nautevol07VII-111/Books-REST-API" target="_blank" class="project-link">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="GoogleClone.png" alt="Google Clone project" />
+                        </div>
+                        <div class="project-details">
+                            <h3>Google Clone</h3>
+                            <p>A responsive Google Search clone that faithfully recreates the iconic search interface while implementing modern web development practices and real search functionality using Google's Custom Search API.</p>
+                            <div class="tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Vite</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">HTML</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Nautevol07VII-111/Google-Clone-" target="_blank" class="project-link">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="dailytodoScreenshot.png" alt="Daily Todo App" />
+                        </div>
+                        <div class="project-details">
+                            <h3>Daily Todo Prototype</h3>
+                            <p>A dynamic task management application using React and Vite, showcasing modern web development practices and state management principles with localStorage integration for data persistence.</p>
+                            <div class="tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Vite</span>
+                                <span class="tag">React Hooks</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Nautevol07VII-111/" target="_blank" class="project-link">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="https://dailytodoprototype.netlify.app" target="_blank" class="project-link">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/" class="view-all-projects">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section-container">
+                <div class="section-header">
+                    <h2>Contact Me</h2>
+                </div>
+                <div class="section-content">
+                    <form action="https://formsubmit.co/njacksonnorthrup244@gmail.com" method="POST" class="contact-form">
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_subject" value="New portfolio contact from your website!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://nautevol07vii-111.github.io/Portfolio-site/thank-you.html">
+                        
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>Coded in <a href="https://code.visualstudio.com" target="_blank" class="link-accent">Visual Studio Code</a> by Nile Jackson.<br /> Created with HTML & CSS, and deployed with <a href="https://www.cloudflare.com" target="_blank" class="link-accent">Cloudflare</a>.<br /> All texts are set in the <a href="https://rsms.me/inter/" target="_blank" class="link-accent">Inter typeface</a>.</p>
                 <a href="#" class="scroll-to-top">
                     <i class="fa-solid fa-arrow-up"></i>
                 </a>
-            </footer>
-            <script src="index.js"></script>
-        </body>
+            </div>
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
 </html>
