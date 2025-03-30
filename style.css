@@ -11,7 +11,7 @@
     --dark-shadow: rgba(0, 0, 0, 0.25);     /* Less harsh shadows */
     --dark-gold: #D2B48C;        
     --dark-rgb-accent: 157, 60, 60;
-    --dark-section-bg: rgba(220, 220, 220, 0.1); /* Light gray section background like in screenshot */
+    --dark-section-bg: rgba(220, 220, 220, 0.1); 
     
    
     --light-bg: #F9F9F9;
@@ -20,12 +20,12 @@
     --light-text-secondary: #4B5563;
     --light-accent: #1E3A8A;
     --light-accent-hover: #2563EB;
-    --light-tag-bg: rgba(30, 58, 138, 0.15); /* Increased opacity for better readability */
+    --light-tag-bg: rgba(30, 58, 138, 0.15); 
     --light-border: rgba(30, 58, 138, 0.3);
     --light-shadow: rgba(0, 0, 0, 0.1);
     --light-cream: #F5F5DC;
     --light-rgb-accent: 30, 58, 138;
-    --light-section-bg: rgba(240, 240, 245, 0.5); /* Light section background for light mode */
+    --light-section-bg: rgba(240, 240, 245, 0.5); 
     
     /* Shared Variables */
     --transition-speed: 0.3s;
@@ -38,7 +38,7 @@
     --spacing-lg: 3rem;
     --spacing-xl: 5rem;
     
-    /* Set Default Theme (Dark) */
+    
     --bg: var(--dark-bg);
     --bg-card: var(--dark-bg-card);
     --text-primary: var(--dark-text-primary);
@@ -108,7 +108,7 @@ img {
     height: auto;
 }
 
-/* Typography */
+
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     margin-bottom: var(--spacing-sm);
