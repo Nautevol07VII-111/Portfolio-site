@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle Functionality
+    
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
     
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         document.body.classList.add('light-mode');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
     
-    // Welcome Message Function with error handling and theme awareness
+   
     const createWelcomeOverlay = () => {
         try {
             const overlay = document.createElement('div');
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initialize welcome message
+    
     createWelcomeOverlay();
     
     // Scroll Progress Indicator
@@ -117,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     createScrollIndicator();
     
-    // Scroll to Top Button
+    
     const scrollToTop = document.querySelector('.scroll-to-top');
     if (scrollToTop) {
         window.addEventListener('scroll', () => {
