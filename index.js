@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
     
@@ -9,12 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
     
-    
     themeToggle.addEventListener('click', () => {
         document.body.classList.add('theme-transition');
         document.body.classList.toggle('light-mode');
         
-        // Update icon
         if (document.body.classList.contains('light-mode')) {
             themeIcon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('theme', 'light');
@@ -23,22 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'dark');
         }
         
-        
         setTimeout(() => {
             document.body.classList.remove('theme-transition');
         }, 500);
     });
     
-   
     const createWelcomeOverlay = () => {
         try {
+            const isBlogPage = window.location.pathname.includes('blog.html');
+            
             const overlay = document.createElement('div');
             overlay.style.position = 'fixed';
             overlay.style.top = '0';
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            
             
             const isDarkMode = !document.body.classList.contains('light-mode');
             const bgColor = isDarkMode ? 'rgba(17, 38, 38, 0.97)' : 'rgba(249, 249, 249, 0.97)';
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.appendChild(welcomeContainer);
             document.body.appendChild(overlay);
 
-            const text = 'Welcome!';
+            const text = isBlogPage ? 'Happy Reading!' : 'Welcome!';
             let charIndex = 0;
 
             function typeWriter() {
@@ -89,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(typeWriter, 500);
             
-            // Safety timeout to ensure overlay is always removed
             setTimeout(() => {
                 if (overlay && overlay.parentNode) {
                     overlay.remove();
@@ -100,10 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    
     createWelcomeOverlay();
     
-    // Scroll Progress Indicator
     const createScrollIndicator = () => {
         const indicator = document.querySelector('.scroll-progress');
         if (!indicator) return;
@@ -115,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     createScrollIndicator();
-    
     
     const scrollToTop = document.querySelector('.scroll-to-top');
     if (scrollToTop) {
@@ -136,25 +128,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                // Factor in the height of the sticky header
                 const headerHeight = document.querySelector('.top-nav').offsetHeight;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
                 
                 window.scrollTo({
-                    top: targetPosition - headerHeight - 20, // Additional 20px for spacing
+                    top: targetPosition - headerHeight - 20,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Section animations on scroll
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileNavToggle && navLinks) {
+        mobileNavToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const navIcon = mobileNavToggle.querySelector('i');
+            if (navIcon) {
+                if (navLinks.classList.contains('active')) {
+                    navIcon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    navIcon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const navIcon = mobileNavToggle.querySelector('i');
+                if (navIcon && navIcon.classList.contains('fa-times')) {
+                    navIcon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+        });
+    }
+    
     const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px 0px -100px 0px'
@@ -172,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
     
-    // Project Card Interactions
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-5px)';
@@ -183,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Tag Interactions
     document.querySelectorAll('.tag').forEach(tag => {
         tag.addEventListener('mouseenter', () => {
             tag.style.transform = 'scale(1.05)';
