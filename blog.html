@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>The Spring EcoSystem and REST API Architecture - Nile Jackson's Blog</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="dark-mode">
+        
+        <div class="scroll-progress"></div>
+
+       
+        <nav class="top-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">Nile Jackson</a>
+                <div class="nav-links">
+                    <a href="/#about" class="nav-link">About</a>
+                    <a href="/#experience" class="nav-link">Experience</a>
+                    <a href="/#projects" class="nav-link">Projects</a>
+                    <a href="/blog.html" class="nav-link active">Blog</a>
+                    <a href="/#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <section class="section-container">
+                <div class="article-container">
+                    <header class="article-header">
+                        <h1>The Spring EcoSystem and REST API Architecture</h1>
+                        <div class="article-meta">
+                            <span class="post-date">April 1, 2025</span>
+                            <div class="tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Spring</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="article-content">
+                        <p>As a new developer, the world of backend programming and its technologies can seem intimidating. I can say that with the utmost confidence because I'm a new developer myself. However, I've discovered several concepts that helped me overcome this intimidation. In this article about Representational State Transfer Application Program Interfaces (REST APIs), I'll share the core concepts that helped me build my first backend project from scratch, along with valuable learning resources I've found along the way.</p>
+                        
+                        <h2>Getting Started with the Right Tools</h2>
+                        <p>The first order of business when building any API is gaining a deep understanding of your tools. In my case, this meant learning core Java, Spring, and Maven. I began my API journey by exploring Spring framework resources, starting with the official <a href="https://spring.io/guides/tutorials/rest" target="_blank" class="link-accent">Spring REST services tutorial</a>. While it's a lengthy read, it's an invaluable knowledge source!</p>
+                        
+                        <p>From there, I set up a basic Spring project configuration using <a href="https://start.spring.io" target="_blank" class="link-accent">Spring Initializer</a>. This tool makes it easy to bootstrap a new Spring application with the dependencies you need. I initially tried to Google my way through the first half of my project—an approach I don't recommend.</p>
+                        
+                        <h2>Revisiting Core REST API Concepts</h2>
+                        <p>Midway through my project, I realized I had significant gaps in my understanding. I decided to revisit the core concepts of REST API architecture:</p>
+                        
+                        <p>Representational State Transfer was first introduced by Roy Fielding in 2000. Since its widespread acceptance, RESTful services have become fundamental to web-based API development. To clarify, REST is an architectural style, not a protocol like HTTP or a standard like the OpenAPI specification, though both directly correlate with REST APIs.</p>
+                        
+                        <h3>The Six Principles of REST Architecture</h3>
+                        
+                        <h4>1. Uniform Interface</h4>
+                        <p>The uniform interface constraint simplifies and decouples the architecture. It consists of four sub-constraints: resource identification in requests, resource manipulation through representations, self-descriptive messages, and hypermedia as the engine of application state (HATEOAS).</p>
+                        
+                        <p>In practice, this means each resource has a unique URI (Uniform Resource Identifier), and you use standard HTTP methods (GET, POST, PUT, DELETE) consistently. For example, to get all books in a Book Management API, you'd use <code>GET /api/books</code> rather than something custom like <code>POST /api/fetchAllBooks</code>.</p>
+                        
+                        <h4>2. Client-Server Design Pattern</h4>
+                        <p>The client-server pattern separates user interface concerns (client) from data storage concerns (server). This separation improves portability across multiple platforms and allows components to evolve independently.</p>
+                        
+                        <p>In a Spring Boot application, your controllers act as the server endpoints that respond to client requests:</p>
+                        
+                        <pre><code>@RestController
+@RequestMapping("/api/books")
+public class BookController {
+    private final BookService bookService;
+    
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+    
+    @GetMapping
+    public List<Book> getAllBooks() {
+        return bookService.findAll();
+    }
+}</code></pre>
+                        
+                        <h4>3. Statelessness</h4>
+                        <p>In REST, each request from a client must contain all the information needed to understand and process the request. The server doesn't store client context between requests—each request is independent.</p>
+                        
+                        <p>This means you shouldn't rely on session data. Instead, any state should be passed in the request itself or maintained by the client:</p>
+                        
+                        <pre><code>@PostMapping("/checkout")
+public ResponseEntity<OrderConfirmation> checkout(@RequestBody OrderRequest orderRequest, 
+                                                @RequestHeader("Authorization") String token) {
+    // Token contains authentication state instead of server-side session
+    User user = authService.validateToken(token);
+    return orderService.createOrder(user.getId(), orderRequest);
+}</code></pre>
+                        
+                        <h4>4. Cacheable Constraint</h4>
+                        <p>Responses must explicitly or implicitly define themselves as cacheable or non-cacheable to prevent clients from reusing stale data.</p>
+                        
+                        <p>In Spring, you can implement this using HTTP headers:</p>
+                        
+                        <pre><code>@GetMapping("/{id}")
+public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    Book book = bookService.findById(id);
+    return ResponseEntity.ok()
+        .cacheControl(CacheControl.maxAge(30, TimeUnit.MINUTES))
+        .body(book);
+}</code></pre>
+                        
+                        <h4>5. Layered System Architecture</h4>
+                        <p>A client can't ordinarily tell whether it's connected directly to the end server or to an intermediary. This allows for load balancing, shared caches, and security policies.</p>
+                        
+                        <p>In a Book Management API, you might structure your application with these layers:</p>
+                        
+                        <pre><code>// Controller Layer - Handles HTTP requests/responses
+@RestController
+@RequestMapping("/api/books")
+public class BookController {
+    private final BookService bookService;
+    
+    // Service methods
+}
+
+// Service Layer - Contains business logic
+@Service
+public class BookService {
+    private final BookRepository bookRepository;
+    
+    // Business logic methods
+}
+
+// Repository Layer - Interacts with database
+@Repository
+public interface BookRepository extends JpaRepository<Book, Long> {
+    // Data access methods
+}
+
+// Entity Layer - Models your domain
+@Entity
+public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String author;
+    // getters and setters
+}</code></pre>
+                        
+                        <h4>6. Self-Descriptive Methods and Classes</h4>
+                        <p>Your API should be intuitive with well-named resources and methods. A developer should be able to understand what a method does just by looking at the URI and HTTP method.</p>
+                        
+                        <p>For example, instead of:</p>
+                        <pre><code>@PostMapping("/doSomethingWithBook")
+public void executeBookAction(@RequestBody Map<String, Object> data) { }</code></pre>
+                        
+                        <p>Use descriptive naming that clearly communicates intent:</p>
+                        <pre><code>@PostMapping
+public ResponseEntity<Book> createBook(@Valid @RequestBody BookRequest request) {
+    Book newBook = bookService.saveBook(request);
+    URI location = ServletUriComponentsBuilder
+        .fromCurrentRequest()
+        .path("/{id}")
+        .buildAndExpand(newBook.getId())
+        .toUri();
+    
+    return ResponseEntity.created(location).body(newBook);
+}
+
+@PutMapping("/{id}")
+public ResponseEntity<Book> updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest request) {
+    return ResponseEntity.ok(bookService.updateBook(id, request));
+}
+
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    bookService.deleteBook(id);
+    return ResponseEntity.noContent().build();
+}</code></pre>
+                        
+                        <h2>The Journey of Continuous Learning</h2>
+                        <p>I'm still early in my programming journey and have a long way to go. However, I've realized that continuous learning is paramount to making progress as a developer. True understanding stems from being able to teach others, which is why I decided to write this article! I hope it helps, and happy coding!</p>
+                        
+                        <h2>Additional Learning Resources</h2>
+                        <ul>
+                            <li><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" target="_blank" class="link-accent">Microsoft REST API Design Best Practices</a></li>
+                            <li><a href="https://www.getambassador.io/blog/7-rest-api-design-best-practices" target="_blank" class="link-accent">Ambassador's 7 REST API Design Best Practices</a></li>
+                            <li><a href="https://medium.com/stackademic/step-by-step-guide-developing-a-bookstore-api-with-spring-boot-and-mysql-for-crud-operations-a5e8d1ee5083" target="_blank" class="link-accent">Step-by-Step Guide: Developing a Bookstore API with Spring Boot and MySQL</a></li>
+                        </ul>
+                    </div>
+                    
+                    <footer class="article-footer">
+                        <div class="article-navigation">
+                            <a href="/" class="back-to-blog"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>Coded in <a href="https://code.visualstudio.com" target="_blank" class="link-accent">Visual Studio Code</a> by Nile Jackson.<br /> Created with HTML/CSS & JS, and deployed with <a href="https://www.cloudflare.com" target="_blank" class="link-accent">Cloudflare</a>.<br /> All texts are set in the <a href="https://rsms.me/inter/" target="_blank" class="link-accent">Inter typeface</a>.</p>
+                <a href="#" class="scroll-to-top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
+</html>
