@@ -5,46 +5,139 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>The Spring EcoSystem and REST API Architecture - Nile Jackson's Blog</title>
-        
-        <link rel="stylesheet" href="blog.css">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /* Simple blog styling that works with your existing CSS */
+            .article-container {
+                width: var(--container-width, 90%);
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem 0;
+            }
+            
+            .article-header h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+                margin-bottom: 1rem;
+                color: var(--text-primary, #F0F0F0);
+            }
+            
+            .article-meta {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                color: var(--text-secondary, #C5C5C5);
+            }
+            
+            .post-tags {
+                display: flex;
+                gap: 0.5rem;
+            }
+            
+            .article-content {
+                line-height: 1.8;
+            }
+            
+            .article-content h2 {
+                margin: 2rem 0 1rem;
+                font-size: 1.8rem;
+                color: var(--accent, #9D3C3C);
+            }
+            
+            .article-content h3 {
+                margin: 1.5rem 0 0.5rem;
+                font-size: 1.5rem;
+            }
+            
+            .article-content h4 {
+                margin: 1rem 0 0.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .article-content p {
+                margin-bottom: 1rem;
+                color: var(--text-primary, #F0F0F0);
+            }
+            
+            .article-content a {
+                color: var(--accent, #9D3C3C);
+                text-decoration: none;
+            }
+            
+            .article-content a:hover {
+                text-decoration: underline;
+            }
+            
+            .article-content pre {
+                background-color: rgba(25, 51, 51, 0.8);
+                padding: 1rem;
+                border-radius: 12px;
+                overflow-x: auto;
+                margin-bottom: 1rem;
+            }
+            
+            .article-content code {
+                font-family: monospace;
+            }
+            
+            .article-content ul {
+                margin-bottom: 1rem;
+                padding-left: 2rem;
+            }
+            
+            .article-footer {
+                margin-top: 3rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(157, 60, 60, 0.25);
+            }
+            
+            .back-to-blog {
+                display: inline-flex;
+                align-items: center;
+                color: var(--accent, #9D3C3C);
+                font-weight: 500;
+                text-decoration: none;
+            }
+            
+            .back-to-blog i {
+                margin-right: 0.5rem;
+            }
+        </style>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="dark-mode">
-        
+        <!-- Scroll Progress Indicator -->
         <div class="scroll-progress"></div>
 
-       
+        <!-- Navigation Bar -->
         <nav class="top-nav">
             <div class="nav-container">
                 <a href="/" class="logo">Nile Jackson</a>
                 <div class="nav-links">
-                    <a href="/#about" class="nav-link">About</a>
-                    <a href="/#experience" class="nav-link">Experience</a>
-                    <a href="/#projects" class="nav-link">Projects</a>
-                    <a href="/blog.html" class="nav-link active">Blog</a>
-                    <a href="/#contact" class="nav-link">Contact</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
-                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
                 <button id="theme-toggle" aria-label="Toggle dark/light mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
         </nav>
 
-        <!-- Main Content -->
+        <!-- Blog Post Content -->
         <main>
-            <section class="section-container">
-                <div class="article-container">
+            <div class="article-container">
+                <article>
                     <header class="article-header">
                         <h1>The Spring EcoSystem and REST API Architecture</h1>
                         <div class="article-meta">
                             <span class="post-date">April 1, 2025</span>
-                            <div class="tags">
+                            <div class="post-tags">
                                 <span class="tag">Java</span>
                                 <span class="tag">Spring</span>
                                 <span class="tag">REST API</span>
@@ -56,9 +149,9 @@
                         <p>As a new developer, the world of backend programming and its technologies can seem intimidating. I can say that with the utmost confidence because I'm a new developer myself. However, I've discovered several concepts that helped me overcome this intimidation. In this article about Representational State Transfer Application Program Interfaces (REST APIs), I'll share the core concepts that helped me build my first backend project from scratch, along with valuable learning resources I've found along the way.</p>
                         
                         <h2>Getting Started with the Right Tools</h2>
-                        <p>The first order of business when building any API is gaining a deep understanding of your tools. In my case, this meant learning core Java, Spring, and Maven. I began my API journey by exploring Spring framework resources, starting with the official <a href="https://spring.io/guides/tutorials/rest" target="_blank" class="link-accent">Spring REST services tutorial</a>. While it's a lengthy read, it's an invaluable knowledge source!</p>
+                        <p>The first order of business when building any API is gaining a deep understanding of your tools. In my case, this meant learning core Java, Spring, and Maven. I began my API journey by exploring Spring framework resources, starting with the official <a href="https://spring.io/guides/tutorials/rest" target="_blank">Spring REST services tutorial</a>. While it's a lengthy read, it's an invaluable knowledge source!</p>
                         
-                        <p>From there, I set up a basic Spring project configuration using <a href="https://start.spring.io" target="_blank" class="link-accent">Spring Initializer</a>. This tool makes it easy to bootstrap a new Spring application with the dependencies you need. I initially tried to Google my way through the first half of my project—an approach I don't recommend.</p>
+                        <p>From there, I set up a basic Spring project configuration using <a href="https://start.spring.io" target="_blank">Spring Initializer</a>. This tool makes it easy to bootstrap a new Spring application with the dependencies you need. I initially tried to Google my way through the first half of my project—an approach I don't recommend.</p>
                         
                         <h2>Revisiting Core REST API Concepts</h2>
                         <p>Midway through my project, I realized I had significant gaps in my understanding. I decided to revisit the core concepts of REST API architecture:</p>
@@ -193,9 +286,9 @@ public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
                         
                         <h2>Additional Learning Resources</h2>
                         <ul>
-                            <li><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" target="_blank" class="link-accent">Microsoft REST API Design Best Practices</a></li>
-                            <li><a href="https://www.getambassador.io/blog/7-rest-api-design-best-practices" target="_blank" class="link-accent">Ambassador's 7 REST API Design Best Practices</a></li>
-                            <li><a href="https://medium.com/stackademic/step-by-step-guide-developing-a-bookstore-api-with-spring-boot-and-mysql-for-crud-operations-a5e8d1ee5083" target="_blank" class="link-accent">Step-by-Step Guide: Developing a Bookstore API with Spring Boot and MySQL</a></li>
+                            <li><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" target="_blank">Microsoft REST API Design Best Practices</a></li>
+                            <li><a href="https://www.getambassador.io/blog/7-rest-api-design-best-practices" target="_blank">Ambassador's 7 REST API Design Best Practices</a></li>
+                            <li><a href="https://medium.com/stackademic/step-by-step-guide-developing-a-bookstore-api-with-spring-boot-and-mysql-for-crud-operations-a5e8d1ee5083" target="_blank">Step-by-Step Guide: Developing a Bookstore API with Spring Boot and MySQL</a></li>
                         </ul>
                     </div>
                     
@@ -204,18 +297,9 @@ public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
                             <a href="/" class="back-to-blog"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
                         </div>
                     </footer>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <p>Coded in <a href="https://code.visualstudio.com" target="_blank" class="link-accent">Visual Studio Code</a> by Nile Jackson.<br /> Created with HTML/CSS & JS, and deployed with <a href="https://www.cloudflare.com" target="_blank" class="link-accent">Cloudflare</a>.<br /> All texts are set in the <a href="https://rsms.me/inter/" target="_blank" class="link-accent">Inter typeface</a>.</p>
-                <a href="#" class="scroll-to-top">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </a>
+                </article>
             </div>
-        </footer>
+        </main>
 
         <script src="index.js"></script>
     </body>
