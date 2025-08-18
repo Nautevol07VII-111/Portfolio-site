@@ -278,13 +278,13 @@
                         </div>
                         <div class="project-details">
                             <h3>Arduino Dual-Protocol Network Parser</h3>
-                            <p>## Custom Dual-Protocol Network Parser
+                            <p>
 
 A C-based network protocol parser that bridges human-readable commands with efficient binary packet transmission for Arduino/embedded systems communication. The system accepts text-based commands in `<COMMAND>` format (like `<LED_ON>`) for easy debugging and serial terminal interaction, then automatically converts them to compact binary packets with error detection via XOR checksums.
 
 The binary protocol follows a structured format: `[START_BYTE][LENGTH][PAYLOAD][CHECKSUM][END_BYTE]`, ensuring reliable data transmission while maintaining a minimal 37-byte footprint suitable for resource-constrained embedded devices. This dual approach provides the best of both worlds - human-friendly debugging during development and efficient binary transmission in production.
 
-## Interactive Web Demonstration
+
 
 The HTML/CSS/JavaScript demo provides a visual, interactive representation of the protocol conversion process. Built with vanilla JavaScript for maximum compatibility, it simulates the real-time transformation from text commands to binary packets, displaying each step of the conversion including payload encoding, checksum calculation, and packet assembly.
 
