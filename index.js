@@ -189,23 +189,90 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
     
+    // FIXED: Mobile-friendly project card interactions
+    const checkIfMobile = () => {
+        return window.matchMedia('(max-width: 768px)').matches || 
+               window.matchMedia('(pointer: coarse)').matches ||
+               ('ontouchstart' in window) || 
+               (navigator.maxTouchPoints > 0);
+    };
+    
+    // Handle project cards with mobile detection
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
+        if (!checkIfMobile()) {
+            // Desktop hover effects
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        } else {
+            // Mobile: ensure no transform issues
+            card.style.transform = 'none';
+            card.style.transition = 'none';
+            
+            // Add touch feedback
+            card.addEventListener('touchstart', () => {
+                card.style.opacity = '0.9';
+            });
+            
+            card.addEventListener('touchend', () => {
+                card.style.opacity = '1';
+            });
+        }
     });
     
-    document.querySelectorAll('.tag').forEach(tag => {
-        tag.addEventListener('mouseenter', () => {
-            tag.style.transform = 'scale(1.05)';
-        });
-        
-        tag.addEventListener('mouseleave', () => {
-            tag.style.transform = '';
-        });
+    // Re-check on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const isMobile = checkIfMobile();
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (isMobile) {
+                    card.style.transform = 'none';
+                    card.style.transition = 'none';
+                } else {
+                    card.style.transform = '';
+                    card.style.transition = '';
+                }
+            });
+        }, 250);
     });
+    
+    // FIXED: Mobile-friendly tag interactions
+    document.querySelectorAll('.tag').forEach(tag => {
+        if (!checkIfMobile()) {
+            tag.addEventListener('mouseenter', () => {
+                tag.style.transform = 'scale(1.05)';
+            });
+            
+            tag.addEventListener('mouseleave', () => {
+                tag.style.transform = '';
+            });
+        } else {
+            // Disable transform on mobile
+            tag.style.transform = 'none';
+        }
+    });
+    
+    // Ensure projects grid is visible on mobile
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (projectsGrid && checkIfMobile()) {
+        projectsGrid.style.display = 'flex';
+        projectsGrid.style.flexDirection = 'column';
+        projectsGrid.style.gap = '1.5rem';
+        projectsGrid.style.width = '100%';
+        projectsGrid.style.padding = '0';
+        
+        // Ensure project cards are full width on mobile
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.width = '100%';
+            card.style.maxWidth = '100%';
+            card.style.marginLeft = '0';
+            card.style.marginRight = '0';
+        });
+    }
 });
